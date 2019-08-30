@@ -1,0 +1,38 @@
+
+<style type="text/css">
+	#p3{border:1px solid black;
+	width: 450px;
+	height: 360px;
+	margin-left: 720px;
+	border-radius: 12px;
+	text-align:center;
+	margin-top: -30px;
+	background-color: #50C7C7;
+}
+#p12{
+	border-radius: 12px;
+	border-color: #B34791;
+	background-color:#C77510;
+}
+
+</style>
+<table border="1" width="50%" id="p12">
+  <thead>
+    <tr>
+      <th>LIste des E-mail</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @emails.each do |email| %>
+    <tr>           
+      <td id="<%=email.id%>"><%=link_to "#{email.objet}", email_path(email.id), remote: true %> </td>
+    </tr>
+    <% end %>
+</table>
+<div id="p3">
+	<h1> le contenu de l'email </h1>
+</div>
+
+<a href="/home/index">tast</a>
+<%=link_to 'recevoir un email', emails_path,remote: true, method: :POST%>
+

@@ -1,0 +1,23 @@
+<center>
+
+	<h1  style="padding:4px"> le contenu de l'email </h1>
+	<h6>
+		<%=email.objet%>
+	</h6>
+</center>
+<center><br><br><br><br><br>
+	<p>
+		<%=email.body%>
+	</p>
+</center>
+<div id="mety">
+	<span class="btn btn-danger"> <%=link_to "Suprimé", "/emails/#{email.id}", method: :DELETE, remote: true%></span>
+
+	<% if email.read == true%>
+
+	<span class="btn btn-success"> <%=link_to "Lu", "/emails/#{email.id}", method: :put, remote: true%></span> 
+	<% else %>
+	<span class="btn btn-warning"> <%=link_to "no-lu", "/emails/#{email.id}", method: :put, remote: true%></span> 
+	<% end %>
+</div>
+
